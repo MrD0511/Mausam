@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block body %}
+          {% if error %}
+            <div>
+              <h4>No internet Connection</h4>
+            </div>
+          {% endif %}
+        <div class="mt-5">
+          <form id="city" method="post" action="">
+            <div class="container">
+              <label for="City">City</label>
+              <input type="text" class="form-label" name="city" id="city" {% if val %}
+                value={{val}}
+              {% else %}
+                value="City"
+              {% endif %}>
+            
+            <button type="submit" class="btn btn-outline-dark btn-sm">Mausam</button>
+            </div>
+          </form>
+        </div>
+        
+        {% if loc %}
+        <div class="container mt-3" id="table">
+            <table class="table" >
+                <tbody>
+                  <tr>
+                    <td>{{loc}},{{country}}</td>
+                    <td>{{time}}</td>
+                    <td>{{time_zone}}</td>
+                  </tr>
+                  <tr>
+                    <td>{{temp}} &deg;C</td>
+                    <td>{{wind}} km/hr {{wind_dir}}</td>
+                    <td>{{description}}</td>
+                  </tr>
+                  <tr>
+                    <td>Pressure: {{pressure}}</td>
+                    <td>Humidity:{{hum}}</td>
+                    <td>feels like:{{fl}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        {% endif %}
+{% endblock body %}
